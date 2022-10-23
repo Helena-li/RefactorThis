@@ -10,7 +10,7 @@ public class ProductConfiguration: IEntityTypeConfiguration<Product>
     {
         builder.HasKey(a => a.Id);
 
-        builder.Property(e => e.Id).HasColumnType("varchar(36)");
+        builder.Property(e => e.Id);
 
         builder.Property(e => e.Name).HasMaxLength(100);
 
