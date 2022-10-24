@@ -1,9 +1,12 @@
-namespace RefactorThis.Entities;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RefactorThis.Domain;
 
 public class ProductOption
 {
-    public string Id { get; set; }
-    public string ProductId { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public Guid Id { get; set; }
+    public Guid ProductId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
 }

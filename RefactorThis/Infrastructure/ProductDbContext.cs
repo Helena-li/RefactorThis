@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using RefactorThis.Entities;
+using RefactorThis.Domain;
 
 namespace RefactorThis.Infrastructure;
 

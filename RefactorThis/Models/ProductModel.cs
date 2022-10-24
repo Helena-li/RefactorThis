@@ -1,10 +1,7 @@
-using System.ComponentModel.DataAnnotations.Schema;
+namespace RefactorThis.Models;
 
-namespace RefactorThis.Domain;
-
-public class Product
+public class ProductModel
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
