@@ -1,4 +1,6 @@
+using FluentValidation.Results;
 using RefactorThis.Domain;
+using RefactorThis.Exceptions;
 using RefactorThis.Interfaces;
 using RefactorThis.Models;
 
@@ -25,6 +27,7 @@ public class ProductOptionService: IProductOptionService
     public Task CreateProductOption(ProductOptionModel productOption)
     {
         var optionDto = MapOption(productOption);
+        optionDto.Id = Guid.Empty;
         return _productOptionRepository.CreateProductOption(optionDto);
     }
 
@@ -36,6 +39,15 @@ public class ProductOptionService: IProductOptionService
 
     private ProductOption MapOption(ProductOptionModel productOption)
     {
+        if (productOption.ProductId==Guid.Empty)
+        {
+            var failures = new List<ValidationFailure>
+            {
+                new ValidationFailure("ProductId", "ProductId is required")
+            };
+            throw new ValidationException(failures);
+        }
+
         return new ProductOption()
         {
             Id = productOption.Id,

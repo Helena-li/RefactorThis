@@ -40,6 +40,7 @@ public class ProductService: IProductService
     public Task CreateProduct(ProductModel product)
     {
         var productDto = MapProduct(product);
+        productDto.Id = Guid.Empty;
         return _productRepository.CreateProduct(productDto);
     }
 
