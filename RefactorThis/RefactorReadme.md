@@ -30,6 +30,7 @@
 1. Since LocalDB is used, it could only run under windows platform for now. To solve the limitation, either use docker or SQLite to make it adapt to Linux platform.
 2. No unit testing.
 3. response is the db entity, shall use models. If got more time, can define request and response classes for each endpoint.
+4. better logging via adding more error/ debug/info logs .
 
 Becasue I've already used 4 hours, so stop it from here.
 
